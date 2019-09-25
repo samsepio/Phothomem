@@ -20,6 +20,7 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
 const storage = multer.diskStorage({
 	destination: path.join(__dirname,'public/img/uploads'),
+	limits: {fileSize: 2000000},
 	filename: (req,file,cb,filename)=>{
 		cb(null,uuid()+path.extname(file.originalname));
 	}

@@ -12,6 +12,12 @@ router.get('/',async(req,res,next)=>{
 router.get('/upload',async(req,res,next)=>{
 	res.render('upload');
 });
+router.get('/comentary',async(req,res,next)=>{
+	const comentarys = await Comentary.find();
+	res.render('comentarios',{
+		comentarys
+	});
+});
 router.post('/upload',async(req,res,next)=>{
 	const image = new Image();
 	image.title = req.body.title;
@@ -35,7 +41,30 @@ router.get('/image/:id',async(req,res,next)=>{
 router.get('/deleteI/:id',async(req,res,next)=>{
 	const {id} = req.params;
 	await Image.remove({_id: id});
-	res.redirect('/');
+	res.redirect('/comentary');
+});
+router.get('/deleteC/:id',async(req,res,next)=>{
+	let {id} = req.params;
+	await Comentary.remove({_id: id});
+	res.redirect('/comentary');
+});
+router.get('/gustaC/:id',async(req,res,next)=>{
+	let {id} = req.params;
+	const comentarys = await Comentary.findById(id);
+	comentarys.status = !comentarys.status;
+	await Comentary.save();
+	res.redirect('/comentary');
+});
+router.get('/edit/:id',async(req,res,next)=>{
+	const comentarys = await Comentary.findById(req.params.id);
+	res.render('edit',{
+		comentarys
+	})
+});
+router.post('/edit/:id',async(req,res,next)=>{
+	const {id} = req.params;
+	await Comentary.update({_id: id},req.body);
+	res.redirect('/comentary');
 });
 router.post('/addC',async(req,res,next)=>{
 	const comentary = new Comentary(req.body);

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<title>Phothome</title>
+		<link rel="styleheet"href="/css/main.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		  <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand mb-0 h1"href="/">Inicio</a>
+                        <a class="navbar-brand mb-0 h1 mx-auto"href="/upload">Subir Imagen</a>
+                        <a class="navbar-brand mb-0 h1"href="/comentary">Comentarios</a>
+                    </nav>
+		 <% for(var i=0; i < comentarys.length; i++) { %>
+		 <div class="card" style="width: 18rem;">
+			 <div class="card-body">
+				 <h5 class="card-title"><%= comentarys[i].users  %></h5>
+				 <h6 class="card-subtitle mb-2 text-muted"><%= comentarys[i].commentary  %></h6>
+				 <a class="btn btn-danger"href="/deleteC/<%= comentarys[i]._id %>">Eliminar</a>
+				 <a class="btn btn-success"href="/gustaC/<%= comentarys[i]._id %>">Me Gusta</a>
+				 <a class="btn btn-info"href="/edit/<%= comentarys[i]._id %>">Editar</a>
+			 </div>
+		 </div>
+		 <% } %>
+	</body>
+</html>

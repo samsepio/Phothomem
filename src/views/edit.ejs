@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+        <head>
+                <meta charset="utf-8">
+                <meta name="author"content="walter">
+                <title>Phothome</title>
+		<link rel="stylesheet"href="/css/main.css">
+                <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        </head>
+        <body>
+                  <nav class="navbar navbar-light bg-light">
+                        <a class="navbar-brand mb-0 h1"href="/">Inicio</a>
+                        <a class="navbar-brand mb-0 h1 mx-auto"href="/upload">Subir Imagen</a>
+                        <a class="navbar-brand mb-0 h1"href="/comentary">Comentarios</a>
+                    </nav>
+		    <div class="card mx-auto" style="width: 18rem;">
+			    <div class="card-body m-3 mx-auto">
+				    <form action="/edit/<%= comentarys._id %>"method="POST">
+					    <h2 class="card subtitle mx-auto">Editar comentario</h2>
+					    <input type="text"name="users"class="form-control"placeholder="Usuario"value="<%= comentarys.users  %>">
+					    <textarea type="text"name="commentary"class="form-control"placeholder="Comentario"><%= comentarys.commentary  %></textarea>
+					    <button class="btn btn-primary btn-block">Editar</button>
+				    </form>
+			    </div>
+		    </div>
+	</body>
+</html>
