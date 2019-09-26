@@ -16,10 +16,11 @@
 		 <% for(var i=0; i < comentarys.length; i++) { %>
 		 <div class="card" style="width: 18rem;">
 			 <div class="card-body">
+				 <p class="card-text"><%= comentarys[i].image %></p>
 				 <h5 class="card-title"><%= comentarys[i].users  %></h5>
 				 <h6 class="card-subtitle mb-2 text-muted"><%= comentarys[i].commentary  %></h6>
 				 <a class="btn btn-danger"href="/deleteC/<%= comentarys[i]._id %>">Eliminar</a>
-				 <a class="btn btn-success"href="/gustaC/<%= comentarys[i]._id %>">Me Gusta</a>
+				 <a class="btn <%= comentarys[i].status ? 'btn-success':'btn-dark'%>"href="/gustaC/<%= comentarys[i]._id %>">Me Gusta</a>
 				 <a class="btn btn-info"href="/edit/<%= comentarys[i]._id %>">Editar</a>
 			 </div>
 		 </div>

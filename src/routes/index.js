@@ -41,7 +41,7 @@ router.get('/image/:id',async(req,res,next)=>{
 router.get('/deleteI/:id',async(req,res,next)=>{
 	const {id} = req.params;
 	await Image.remove({_id: id});
-	res.redirect('/comentary');
+	res.redirect('/');
 });
 router.get('/deleteC/:id',async(req,res,next)=>{
 	let {id} = req.params;
@@ -52,7 +52,7 @@ router.get('/gustaC/:id',async(req,res,next)=>{
 	let {id} = req.params;
 	const comentarys = await Comentary.findById(id);
 	comentarys.status = !comentarys.status;
-	await Comentary.save();
+	await comentarys.save();
 	res.redirect('/comentary');
 });
 router.get('/edit/:id',async(req,res,next)=>{

@@ -3,10 +3,12 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="author"content="walter">
+		<link rel="stylesheet"href="/css/main.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 		<title>PhothoMe</title>
 	</head>
-	<body>
+	<body class="animated bounceInDown">
 		    <nav class="navbar navbar-light bg-light">
                         <a class="navbar-brand mb-0 h1"href="/">Inicio</a>
                         <a class="navbar-brand mb-0 h1 mx-auto"href="/upload">Subir Imagen</a>
@@ -27,13 +29,15 @@
 									</div>
 								</div>
 								<div class="form-group">
-									<input type="text" name="title" placeholder="Titlulo" class="form-control">
+									<span id="errorB"></span>
+									<input type="text" name="title"id="titulo"placeholder="Titlulo" class="form-control">
 								</div>
 								<div class="form-group">
-									<textarea name="description" placeholder="Descripcion" class="form-control"></textarea>
+									<span id="errorC"></span>
+									<textarea name="description"id="descripcion"placeholder="Descripcion" class="form-control"></textarea>
 								</div>
 								<div class="form-group">
-									<button class="btn btn-success btn-block">
+									<button class="btn btn-success btn-block"id="subir">
 										Subir
 									</button>
 								</div>
@@ -43,6 +47,5 @@
 				</div>
 			</div>
 		</div>
-
 	</body>
 </html>

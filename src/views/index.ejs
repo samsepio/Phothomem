@@ -5,15 +5,16 @@
 		<meta name="author"content="walter">
 		<title>Phothome</title>
 		<link rel="stylesheet"href="/css/main.css">
-	  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css"> 	
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+		<link rel=“stylesheet” href=“https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css”></i>   	
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 	</head>
 	<body>
 		    <nav class="navbar navbar-light bg-light">
-                        <a class="navbar-brand mb-0 h1"href="/">Inicio</a>
+					    <a class="navbar-brand mb-0 h1"href="/">Inicio</a>
                         <a class="navbar-brand mb-0 h1 mx-auto"href="/upload">Subir Imagen</a>
-			<a class="navbar-brand mb-0 h1"href="/comentary">Comentarios</a>
-		    </nav>
+						<a class="navbar-brand mb-0 h1"href="/comentary">Comentarios</a>
+			</nav>
 		<div class="container p-4">
 			<div class="row">
 				<div class="card-columns">
@@ -26,12 +27,29 @@
 							<a href="/image/<%= image._id %>" class="btn btn-primary btn-block">descripciones</a>
 							<p class="card-text"><%= format(image.created_at) %></p>
 							<form action="/addC"method="POST">
-								<input type="text"name="users"class="form-control"placeholder="Usuario">
-								<textarea type="text"cols="8"name="commentary"class="form-control"placeholder="Comentario"></textarea>
-								<button class="btn btn-success btn-block"type="submit">Comentar</button>
+								<span id="errorA"></span>
+								<input type="text"name="image"class="form-control"placeholder="Titulo De La imagen"></input>
+								<input type="text"name="users"class="form-control"placeholder="Usuario"id="usuario">
+								<span id="errorB"></span>
+								<textarea type="text"cols="8"name="commentary"class="form-control"placeholder="Comentario"id="comentario"></textarea>
+								<button class="btn btn-success btn-block"type="submit"id="
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								comentar">Comentar</button>
 							</form>
 						</div>
 					</div>
 					<% }) %>
-	</body>
+					<script src="/js/upload.js"></script>
+				</body>
 </html>
