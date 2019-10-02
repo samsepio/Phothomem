@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const Image=require('../model/task');
 const Comentary=require('../model/comentary');
+const passport = require('passport');
 
 router.get('/',async(req,res,next)=>{
 	const images = await Image.find();
@@ -17,6 +18,19 @@ router.get('/comentary',async(req,res,next)=>{
 	res.render('comentarios',{
 		comentarys
 	});
+});
+router.get('/signup',(req,res,next)=>{
+	res.render('signup');
+});
+router.get('/signin',(req,res,next)=>{
+	res.render('signin');
+});
+router.post('/signup',passport.authenticate('local-signup',{
+	successRedirect: '/',
+	failureRedirect: '/signup',
+	passReqToCallback: true	
+}));
+router.post('/signin',(req,res,next)=>{
 });
 router.post('/upload',async(req,res,next)=>{
 	const image = new Image();

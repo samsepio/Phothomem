@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<title>Phothomem</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+                        <a class="navbar-brand" href="/">Inicio</a>
+                        <a class="navbar-brand mx-auto"href="/signup">Registrate</a>
+                        <a class="navbar-brand mx-auto"href="/signin">Incia Sesion</a>
+                </nav>
+                <br>
+                <center><h1>Inicia Sesion</h1></center>
+                <div class="card mx-auto" style="width: 18rem;">
+                        <div class="card-body mx-auto">
+				<form action="/signin"method="POST">
+					<label>Usuario</label>
+					<input type="email"name="email"class="form-control mx-auto"placeholder="Ingrese Usuario">
+					<label>Contraseña</label>
+					<input type="password"name="password"class="form-control mx-auto"placeholder="Ingrese Contraseña">
+					<br>
+					<button type="submit"class="btn btn-success btn-block">Iniciar Sesion</button>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>

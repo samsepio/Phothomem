@@ -3,10 +3,13 @@ const path = require('path');
 const engine = require('ejs');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const passport=require('passport');
 const multer = require('multer');
+const flash = require('connect-flash');
+const session = require('express-session');
 const { format } = require('timeago.js');
 const uuid = require('uuid/v4');
-const app = express();
+const app = express();	
 
 mongoose.connect('mongodb+srv://walter:3219329910@database1-wegwd.mongodb.net/test?retryWrites=true&w=majority')
 	.then(db => console.log('conectado a la base de datos'))
@@ -18,6 +21,18 @@ app.set('views', path.join(__dirname, './views'));
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
+app.use(session({
+	secret: '&%$mysecreSecciondjsuhdubv$&%$',
+	resave: false,
+	saveUninitialized: false
+}));
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
+app.use((req,res,next) => {
+	app.locals.signupMessage = req.flash('signupMessage');
+	next();	
+});
 const storage = multer.diskStorage({
 	destination: path.join(__dirname, 'public/img/uploads'),
 	limits: { fileSize: 2000000 },
