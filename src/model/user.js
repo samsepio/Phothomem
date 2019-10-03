@@ -1,5 +1,5 @@
 const mongoose=require('mongoose');
-const Schema = mongoos.Schema;
+const Schema = mongoose.Schema;
 const bcrypt=require('bcrypt-nodejs');
 
 const userSchema = Schema({
@@ -8,7 +8,7 @@ const userSchema = Schema({
 });
 
 userSchema.methods.encryptPassword = (password) => {
-	bcrypt.hashSync(password,bcrypt.gentSaltSync(10));
+	bcrypt.hashSync(password,bcrypt.genSaltSync(10));
 };
 
 userSchema.methods.comparePassword = function (passwrod) {

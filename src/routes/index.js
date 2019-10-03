@@ -30,8 +30,11 @@ router.post('/signup',passport.authenticate('local-signup',{
 	failureRedirect: '/signup',
 	passReqToCallback: true	
 }));
-router.post('/signin',(req,res,next)=>{
-});
+router.post('/signin',passport.authenticate('local-signin',{
+	successRedirect: '/',
+	failureRedirect: '/signin',
+	passReqToCallback: true
+}));
 router.post('/upload',async(req,res,next)=>{
 	const image = new Image();
 	image.title = req.body.title;

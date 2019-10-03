@@ -17,6 +17,9 @@
                 <div class="card mx-auto" style="width: 18rem;">
                         <div class="card-body mx-auto">
 				<form action="/signin"method="POST">
+					<% if(signinMessage) { %>
+						<div><%= signinMessage  %></div>
+					<% } %>
 					<label>Usuario</label>
 					<input type="email"name="email"class="form-control mx-auto"placeholder="Ingrese Usuario">
 					<label>Contraseña</label>

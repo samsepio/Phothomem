@@ -18,6 +18,9 @@
 			<div class="card-body mx-auto">
 				<form action="/signup"method="POST">
 					<label>Usuario</label>
+					<% if(signupMessage) {%>
+						<div><%= signupMessage  %></div>
+					<% } %>
 					<input type="email"name="email"class="form-control mx-auto"placeholder="Ingrese Usuario">
 					<label>Contraseña</label>
 					<input type="password"name="password"class="form-control mx-auto"placeholder="Ingrese Contraseña">
