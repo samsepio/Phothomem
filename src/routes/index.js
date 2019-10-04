@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 const Image=require('../model/task');
 const Comentary=require('../model/comentary');
+const Chat=require('../model/chat');
 const passport = require('passport');
 
 router.get('/',async(req,res,next)=>{
@@ -18,6 +19,34 @@ router.get('/comentary',async(req,res,next)=>{
 	res.render('comentarios',{
 		comentarys
 	});
+});
+router.get('/contact',async(req,res,next)=>{
+	const chats = await Chat.find();
+	res.render('chat',{
+		chats
+	});
+});
+router.post('/contact',async(req,res,next)=>{
+	const chat = new Chat(req.body);
+	await chat.save();
+	console.log(chat);
+	res.redirect('/contact')
+});
+router.get('/eliminar/:id',async(req,res,next)=>{
+	let {id} = req.params;
+	await Chat.deleteOne({_id: id});
+	res.redirect('/contact');
+});
+router.get('/editar/:id',async(req,res,next)=>{
+	const chats = await Chat.findById(req.params.id);
+	res.render('editar',{
+		chats
+	})
+});
+router.post('/editar/:id',async(req,res,next)=>{
+	const {id} = req.params;
+        await Chat.update({_id: id},req.body);
+        res.redirect('/contact');
 });
 router.get('/signup',(req,res,next)=>{
 	res.render('signup');

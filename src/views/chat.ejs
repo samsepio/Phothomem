@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<title>Phothomem</title>
+		<link rel="stylesheet"href="/css/chat.css">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	</head>
+	<body>
+		<nav class="navbar navbar-dark bg-dark">
+			<a class="navbar-brand mb-0 h1 mx-auto"href="/">Inicio</a>
+		</nav>
+		<br>
+		<div class="mx-auto">
+			<div class="row mx-auto">
+				<div class="col-md-8 mx-auto">
+					<div class="card mx-auto">
+						<div class="card-header bg-dark text-white">
+							<h4>Chatea</h3>
+						</div>
+						<div class="card-body mx-auto"></div>
+							 <div class="card-header">
+						 	      <% for(var i=0; i < chats.length; i++) { %>
+							      <h5><%= chats[i].users  %></h5>
+							      	 <%= chats[i].message  %>
+								 <a href="/eliminar/<%= chats[i]._id  %>"class="btn btn-danger">Eliminar</a>
+								 <a href="/editar/<%= chats[i]._id  %>"class="btn btn-info">Editar</a>
+								<% } %>
+						</div>
+						<br>
+						<form action="/contact"method="POST">
+							<input type="text"class="form-control"name="users"placeholder="Ingrese Usuario">
+							<div class="input-group">
+								<textarea type="text"name="message"class="form-control"placeholder="Inserte Su Mensaje"></textarea>
+									<button class="btn btn-primary btn-block">
+										Enviar Mensaje
+									</button>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+	</body>
+</html>	

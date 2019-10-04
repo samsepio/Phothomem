@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8">
+		<meta name="author"content="walter">
+		<title>Phothomem</title>
+	</head>
+	<body>
+		<form action="/editar/<%= chats._id  %>"method="POST">
+			<textarea><%= chats.message  %></textarea>
+			<button type="submit">Editar</button>
+		</form>
+	</body>
+</html>
