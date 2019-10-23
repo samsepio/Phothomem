@@ -31,6 +31,7 @@ app.use(session({
 app.use(flash());
 app.use(passport.initialize());
 app.use(passport.session());
+//con app.locals definimos una variable que se pueda acceder desde cualquier parte de nuestra aplicacion
 app.use((req,res,next) => {
 	app.locals.signupMessage = req.flash('signupMessage');
 	app.locals.signinMessage = req.flash('signinMessage');	
